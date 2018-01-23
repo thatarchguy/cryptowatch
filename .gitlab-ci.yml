@@ -1,0 +1,17 @@
+---
+stages:
+  - test
+
+lint:
+  stage: test
+  image: python:3.6
+  script:
+    - python3.6 setup.py install
+    - pip install '.[testing]'
+    - make lint
+
+test:
+  stage: test
+  image: python:3.6
+  script:
+    - python3.6 setup.py test
